@@ -1,0 +1,202 @@
+/*Variables*/
+*{
+    --primary-color: #0c3b2e;
+    --primary-bg-color: #6d9773;
+    --light-color:#fff;
+    --pop-color:#ffba00;
+}
+
+/*================================================*/
+/*Reset and General Styles*/
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: helvetica, sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+    background: linear-gradient(to bottom, var(--primary-bg-color), var(--light-color));
+    color: var(--primary-color);
+    display: grid;
+    grid-template-rows: 6rem 1fr 3rem;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+        "header header header"
+        "sidebar content sidebar2"
+        "footer footer footer";
+}
+
+input,
+textarea {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+header, footer{
+    background-color:  #0c3b2e;
+    color: white;
+}
+/*================================================*/
+/*Utility Classes*/
+.font-sm {
+    font-size: 0.8rem;
+}
+
+.right-indent{
+    padding-left: 1em;
+}
+
+.center-text {
+    text-align: center;
+}
+/*================================================*/
+/*Overall layouts*/
+
+
+
+
+/*================================================*/
+/*Header styles*/
+h1 {
+    
+    padding-left: 1rem;
+}
+
+nav li {
+    padding-right: 1rem;
+    font-size: 1.5rem;
+} 
+
+nav a {
+    color: white;
+}
+
+nav a:hover, 
+nav a:active{
+    border-bottom: 4px solid #6d9773;
+}
+/*================================================*/
+/*Header layouts*/
+
+
+
+
+/*================================================*/
+/*Main styles*/
+
+main {
+    padding: 1rem;
+    background-color: #fff;
+}
+
+
+h2 {
+    color: #ffba00;
+    margin-bottom: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/*================================================*/
+/*Home page content*/
+
+main li {
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    padding-left: 1.5em;
+    background-position: 0 0.2em;
+ 
+}
+
+main a {
+    color: #6d9773;
+}
+
+main a:hover,
+main a:active {
+    border-bottom: 2px solid #6D9773;
+}
+/*================================================*/
+/*Menu page content*/
+
+table {
+    border: 3px solid #6D9773;
+    border-collapse: collapse;
+    width: 100%;
+    margin-inline: auto;
+}
+
+thead tr {
+    background-color: #6d9773;
+    color: white;
+}
+
+th, 
+td {
+    padding: 0.3rem;
+    text-align: center;
+}
+
+tbody tr:nth-child(4n) {
+    border-bottom: 3px solid #6D9773;
+}
+
+caption {
+    font-weight: bold;
+    text-align: right;
+    font-style: italic; 
+}
+/*================================================*/
+/*Reservations page*/
+input[type="text"],
+input[type="email"], 
+input[type="tel"], 
+input[type="datetime-local"],
+input[type="number"],
+textarea{
+  border: 2px solid  #0c3b2e;
+  margin-bottom: 0.5em;
+  width: 100%;
+  padding: 0.6em;
+  
+}
+
+textarea {
+    height: 8em;
+}
+
+
+input[type="submit"] {
+    background-color: #0c3b2e;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 5px; 
+  }
+/*================================================*/
+/*Style 'container-content' class*/
+
+
+
+/*================================================*/
+/*Main content area layouts*/
+
+
+
+/*================================================*/
+/*Footer layouts*/

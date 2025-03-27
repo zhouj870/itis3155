@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Niner Coffee House</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <meta charset="UTF-8">
+        <meta name="author" content="Jie Zhou">
+    </head>
+
+    <body>
+        <header>
+            <h1>Niner Coffee House</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="reservations.html">Reservations</a></li>
+        </ul>
+        </header>
+        <main>
+            <img src="images/shop.jpg" width="400" height="533" alt="shop">
+
+            <h2>Make a Reservation</h2>
+            <form>
+
+                <input type="text" id="Name" name="Name" placeholder="Name" required>
+                <br>
+                <input type="text" id="Email" name="Email" placeholder="Email" required>
+                <br>
+                <input type="text" id="PhoneNumber" name="Phone Number" placeholder="Phone Number" required>
+                <br>
+                <input type="number" id="#Guests" name="# Guests" placeholder="# Guests" min="1" max="20" required>
+                <br>
+                <input type="datetime-local" id="DateandTime" name="Date and Time" required>
+                <br>
+                <textarea id="SpecialRequests" name="Special Requests" cols= "20" rows="2">Special Requests</textarea>
+                <br>
+                <input type="submit" value="Reserve">
+            </form>
+
+        </main>
+        <footer>
+            <p>©2025 Niner Coffee House. All rights reserved</p>
+        </footer>
+    </body>

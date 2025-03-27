@@ -1,0 +1,51 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.bar {
+    width: 800px;
+    height: 50px;
+    background-color: grey;
+    margin: 20px;
+    padding: 0;
+
+}
+.square {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
+
+    animation-name: move;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+
+    animation-fill-mode: forwards;
+
+}
+
+.square:hover {
+    animation-play-state: paused;
+}
+
+
+.red {
+    background-color: salmon; 
+}
+
+.blue {
+    background-color: lightskyblue;
+}
+
+@keyframes move {
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(750px);
+    }
+}
