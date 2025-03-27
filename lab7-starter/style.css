@@ -48,6 +48,17 @@ header p {
 .accordion-content {
     margin-bottom: 0.5rem;
     width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.accordion-content.open{
+    height: auto;
+    overflow: auto;
+
+}
+.accordion-label.open{
+    opacity: 1;
 }
 
 
