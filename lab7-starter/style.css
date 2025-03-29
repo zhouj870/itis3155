@@ -1,3 +1,6 @@
+:root {
+    --content-height: 0px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -43,22 +46,35 @@ header p {
     border: none;
     color: white;
     position: relative;
+    transition: opacity 0.5s ease-out;
 }
-
+ 
 .accordion-content {
     margin-bottom: 0.5rem;
     width: 100%;
     height: 0;
     overflow: hidden;
+    transition: height 0.5s ease-in-out;
 }
 
 .accordion-content.open{
-    height: auto;
+    height: var(--content-height);
     overflow: auto;
+    
 
 }
 .accordion-label.open{
     opacity: 1;
+}
+.accordion-label::after{
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    font-size: 1.2rem;
+}
+.accordion-label.open::after{
+    content: '-';
+    font-size: 1.5rem;
 }
 
 
