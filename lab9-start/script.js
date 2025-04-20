@@ -92,7 +92,7 @@ function processQuestions(data) {
         const correct = item.correct_answer;
         const incorrect = item.incorrect_answers;
 
-        const allAnswers = [...incorrect, correct];
+        const allAnswers = [...incorrect];
 
         const correctIndex = Math.floor(Math.random() * (incorrect.length + 1));
         allAnswers.splice(correctIndex, 0, correct);
@@ -100,7 +100,7 @@ function processQuestions(data) {
         return {
             text: questionText,
             level: level,
-            answer: allAnswers,
+            answers: allAnswers,
             correctAnswer: correctIndex
 
         };
@@ -145,16 +145,31 @@ submitBtn.addEventListener('click', submitAnswer);
 
 function submitAnswer() {
     submitBtn.disabled = true;
-    const answerSubmitted = questionBody.querySelector('.selected');
+
+    const answerSubmitted = questionBody.querySelector('.option-item.selected');
     const allAnswers = questionBody.querySelectorAll('.option-item');
     const correctAnswer = allAnswers[questions[counter].correctAnswer];
 
     correctAnswer.classList.add('correct');
 
 
-    if(answerSubmitted === correctAnswer)
+    if(!answerSubmitted){
+
+    } else if(answerSubmitted === correctAnswer)
     {
-        score += 10;
+        const difficulty = questions[counter].level;
+        switch(difficulty)
+        {
+            case 'easy':
+                score += 10;
+                break;
+            case 'medium':
+                score += 20;
+                break;
+            case 'hard':
+                score += 30;
+                break;
+        }
         correct++;
     }
     else {
