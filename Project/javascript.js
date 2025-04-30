@@ -67,3 +67,45 @@ document.querySelectorAll('form').forEach(form => {
         }
     });
 });
+
+// Food Nutrition API
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('foodSearchForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+
+        const query = document.getElementById('foodQuery').value;
+        const resultsContainer = document.getElementById('foodResults');
+        resultsContainer.innerText = 'Searching...';
+
+        const apiKey = '7TwoV6oQytIfLd7zd5KFhgGG1MI5wxATID1r1HSH'; // Your API Key
+
+        fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.foods && data.foods.length > 0) {
+                    const food = data.foods[0]; // Show first result
+                    const fdcId = food.fdcId;
+
+                    return fetch(`https://api.nal.usda.gov/fdc/v1/food/${fdcId}?api_key=${apiKey}`);
+                } else {
+                    throw new Error('No results found.');
+                }
+            })
+            .then(response => response.json())
+            .then(details => {
+                const nutrientsList = details.foodNutrients.map(n => `
+                    <li>${n.nutrientName}: ${n.value} ${n.unitName}</li>
+                `).join('');
+
+                resultsContainer.innerHTML = `
+                    <h3>${details.description}</h3>
+                    <ul>${nutrientsList}</ul>
+                `; 
+            })
+            .catch(error => {
+                console.error(error);
+                resultsContainer.innerText = 'No nutrition info found or there was an error.';
+            });
+    });
+});
